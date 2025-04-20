@@ -7,15 +7,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-FRIEND_ID = int(os.getenv("FRIEND_ID")) #"i_uxii1910_59440"
+FRIEND_ID = int(os.getenv("FRIEND_ID"))
 
 CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
 
 
-TOKEN= os.getenv("TOKEN") #"1362732885693567036"
+TOKEN= os.getenv("TOKEN")
 
-aternos_username= os.getenv("aternos_username") #"motazmuk"
-aternos_server= os.getenv("aternos_server") # "motazmuk.aternos.me"
+aternos_username= os.getenv("aternos_username")
+aternos_server= os.getenv("aternos_server")
 
 
 
@@ -42,13 +42,13 @@ async def check_server_status():
             if data["online"]:
                 print("✅ Server is online!")
                 if not notified_online:
-                    await channel.send(f"@everyone `{aternos_server}` {data['motd']['clean'][0]}")
+                    await channel.send(f"@everyone The Minecraft server `{aternos_server}` **{data['version']}**.")
                     notified_online = True
                     notified_offline = False
             else:
                 print("❌ Server is offline.")
                 if not notified_offline:
-                    await channel.send(f"@everyone The Minecraft server `{aternos_server}` is now **offline**. 😴")
+                    await channel.send(f"@everyone The Minecraft server `{aternos_server}` **{data['version']}**.")
                     notified_offline = True
                     notified_online = False
 
